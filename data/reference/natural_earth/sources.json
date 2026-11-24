@@ -1,0 +1,29 @@
+{
+  "provider": "Natural Earth",
+  "scale": "1:50m",
+  "terms": "Public domain",
+  "terms_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+  "assets": {
+    "ne_50m_land": {
+      "url": "https://naturalearth.s3.amazonaws.com/50m_physical/ne_50m_land.zip",
+      "file": "ne_50m_land.zip",
+      "version": "4.1.0",
+      "bytes": 457183,
+      "sha256": "0b8e670cf80dce9cbebe2a193bc44ba5602758c22e1fa603980553646d7ff162"
+    },
+    "ne_50m_admin_0_boundary_lines_land": {
+      "url": "https://naturalearth.s3.amazonaws.com/50m_cultural/ne_50m_admin_0_boundary_lines_land.zip",
+      "file": "ne_50m_admin_0_boundary_lines_land.zip",
+      "version": "5.1.0",
+      "bytes": 309389,
+      "sha256": "02f369ae10578c4ce33fc4a08f8cdd69ea11eb39b44d7923e88eb7199aaff8ea"
+    },
+    "ne_50m_admin_1_states_provinces_lines": {
+      "url": "https://naturalearth.s3.amazonaws.com/50m_cultural/ne_50m_admin_1_states_provinces_lines.zip",
+      "file": "ne_50m_admin_1_states_provinces_lines.zip",
+      "version": "5.1.0",
+      "bytes": 261730,
+      "sha256": "464e762020d198257a07f5f62eb7cbfc287fccbc0a6db788d8068b49844d951e"
+    }
+  }
+}

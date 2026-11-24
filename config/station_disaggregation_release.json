@@ -1,0 +1,21 @@
+{
+  "dry_buffer_steps": 72,
+  "storm_profile_cutpoints": [
+    0.33,
+    0.67
+  ],
+  "diagnostic_min_observed_15min_mm": 1.0,
+  "precipitation_comparison_tolerance_mm": 1e-10,
+  "minimum_events": 30,
+  "minimum_sites": 3,
+  "diagnostic_flags": {
+    "input_column": "derived_hourly",
+    "rain_above_mm": 0.0,
+    "low_rh_below_percent": 60.0,
+    "high_solar_above_W_m2": 600.0,
+    "utc_hour_end_inclusive": [
+      16,
+      22
+    ]
+  }
+}

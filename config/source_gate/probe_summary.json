@@ -1,0 +1,87 @@
+{
+  "stage": "gate0_step0a",
+  "status": "probe_parsed",
+  "probe_pair_count": 22,
+  "monthly_station_years": 16,
+  "UTC": "2026-11-19T04:03:57.983517+00:00",
+  "field_summary": [
+    {
+      "product": "hourly02",
+      "field": "SOIL_MOISTURE_10",
+      "valid_rows": 97148,
+      "station_years_with_valid": 12,
+      "nominal_gap_count": 96724
+    },
+    {
+      "product": "hourly02",
+      "field": "SOIL_MOISTURE_100",
+      "valid_rows": 76174,
+      "station_years_with_valid": 9,
+      "nominal_gap_count": 76141
+    },
+    {
+      "product": "hourly02",
+      "field": "SOIL_MOISTURE_20",
+      "valid_rows": 73811,
+      "station_years_with_valid": 9,
+      "nominal_gap_count": 73487
+    },
+    {
+      "product": "hourly02",
+      "field": "SOIL_MOISTURE_5",
+      "valid_rows": 96506,
+      "station_years_with_valid": 12,
+      "nominal_gap_count": 96407
+    },
+    {
+      "product": "hourly02",
+      "field": "SOIL_MOISTURE_50",
+      "valid_rows": 72229,
+      "station_years_with_valid": 9,
+      "nominal_gap_count": 72197
+    },
+    {
+      "product": "hourly02",
+      "field": "SUR_TEMP",
+      "valid_rows": 113750,
+      "station_years_with_valid": 13,
+      "nominal_gap_count": 113707
+    },
+    {
+      "product": "hourly02",
+      "field": "SUR_TEMP_MAX",
+      "valid_rows": 113750,
+      "station_years_with_valid": 13,
+      "nominal_gap_count": 113707
+    },
+    {
+      "product": "hourly02",
+      "field": "SUR_TEMP_MIN",
+      "valid_rows": 113750,
+      "station_years_with_valid": 13,
+      "nominal_gap_count": 113707
+    },
+    {
+      "product": "subhourly01",
+      "field": "SOIL_MOISTURE_5",
+      "valid_rows": 925890,
+      "station_years_with_valid": 10,
+      "nominal_gap_count": 925633
+    },
+    {
+      "product": "subhourly01",
+      "field": "SURFACE_TEMPERATURE",
+      "valid_rows": 1095312,
+      "station_years_with_valid": 11,
+      "nominal_gap_count": 1095279
+    },
+    {
+      "product": "subhourly01",
+      "field": "WIND_1_5",
+      "valid_rows": 1095312,
+      "station_years_with_valid": 11,
+      "nominal_gap_count": 1095279
+    }
+  ],
+  "source_manifest": "reports/uscrn_2007_2025/gate0/probe_manifest.json"
+}

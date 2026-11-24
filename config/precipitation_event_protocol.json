@@ -1,0 +1,86 @@
+{
+  "source_years": [
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "interval_minutes": 5,
+  "minimum_dry_hours": 6,
+  "peak_support_dry_minutes_each_side": 25,
+  "peak_windows_minutes": [
+    5,
+    15,
+    30
+  ],
+  "peak_depth_tolerance_mm": 1e-10,
+  "reference": {
+    "source_years": [
+      2007,
+      2020
+    ],
+    "station_split": "train",
+    "quantile": 0.95,
+    "quantile_method": "linear"
+  },
+  "envelope_replay": {
+    "station_split": "test",
+    "cohort": "Boundary-confirmed official-eligible test-station events in the replay window",
+    "track": "official_hourly",
+    "variable": "precipitation",
+    "methods": [
+      "uniform_within_hour",
+      "linear_bounded_mean_constrained",
+      "extra_trees_constrained"
+    ],
+    "example_event_id": "04990_20250603T0730Z",
+    "evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "error_strata": {
+    "min_stations": 3,
+    "min_events": 30
+  },
+  "dry_gap_sensitivity": {
+    "dry_hours": [
+      2,
+      6,
+      12
+    ],
+    "sample_seed": "NOAA-precipitation-library-2026-11-18",
+    "selection": "Before segmenting precipitation, select one station-year per source year, NOAA network and major Koppen-Geiger climate group by smallest SHA-256 of the fixed seed, WBAN and year. Compare all three definitions within the same selected annual records."
+  },
+  "metadata": {
+    "noaa_catalogue": "data/uscrn_2007_2025/raw/stations.tsv",
+    "noaa_station_listing": "https://www.ncei.noaa.gov/access/crn/station-listing",
+    "climate_article_doi": "10.1038/s41597-023-02549-6",
+    "climate_data_doi": "10.6084/m9.figshare.21937571.v1",
+    "climate_download_url": "https://ndownloader.figshare.com/files/42602809",
+    "climate_zip_bytes": 92221371,
+    "climate_zip_md5": "544e895588b90ecc5903c27f50f4b761",
+    "climate_zip_sha256": "0f43cd0c83a781e29c0e9c43e114f690bb84274bfc78b3dc2c879888b0f60df1",
+    "climate_raster_member": "1991_2020/koppen_geiger_0p01.tif",
+    "climate_legend_member": "legend.txt",
+    "climate_license": "CC0 1.0 (Figshare file record)"
+  }
+}

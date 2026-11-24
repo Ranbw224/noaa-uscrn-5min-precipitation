@@ -1,0 +1,32 @@
+{
+  "base_manifest": "reports/uscrn_2007_2025/base/full_build_manifest.json",
+  "source_manifest": "data/uscrn_2007_2025/source_manifest.json",
+  "release_directory": "output/station_disaggregation_release_2007_2025",
+  "reports_directory": "reports/uscrn_2007_2025",
+  "staging_directory": "data/uscrn_2007_2025/staging/m3",
+  "event_protocol": "config/precipitation_event_protocol.json",
+  "diagnostic_protocol": "config/station_disaggregation_release.json",
+  "benchmark_protocol": "config/benchmark_full.json",
+  "reference_years": [
+    2007,
+    2020
+  ],
+  "fitting_years": [
+    2013,
+    2020
+  ],
+  "replay_years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "training_wet_variables": [
+    "air_temperature",
+    "precipitation",
+    "solar_radiation",
+    "relative_humidity"
+  ],
+  "validation_tuning_trials": 0
+}

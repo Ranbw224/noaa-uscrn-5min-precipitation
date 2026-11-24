@@ -1,0 +1,27 @@
+{
+  "product": "Beck et al. historical Koppen-Geiger, 1991-2020, 0.01 degree",
+  "article_doi": "10.1038/s41597-023-02549-6",
+  "data_doi": "10.6084/m9.figshare.21937571.v1",
+  "download_url": "https://ndownloader.figshare.com/files/42602809",
+  "archive_bytes": 92221371,
+  "archive_sha256": "0f43cd0c83a781e29c0e9c43e114f690bb84274bfc78b3dc2c879888b0f60df1",
+  "figshare_md5": "544e895588b90ecc5903c27f50f4b761",
+  "license": "CC0 1.0 (Figshare file record)",
+  "raster_member": "1991_2020/koppen_geiger_0p01.tif",
+  "legend_member": "legend.txt",
+  "raster_grid": {
+    "crs": "EPSG:4326",
+    "pixel_size_degrees": [
+      0.01,
+      0.01
+    ],
+    "height": 18000,
+    "width": 36000,
+    "nodata": 0.0
+  },
+  "extracted_sha256": {
+    "koppen_geiger_0p01.tif": "c6dc9d74075a41d100f0633bacc1cb21f0af676108b197bf3a75d1222d8b1d7d",
+    "legend.txt": "6373d6b522b7b27ec9afbf51dc477a8a9d269074321d51d8e047c23691d67fcb"
+  },
+  "sampling": "Containing raster cell for the archived NOAA longitude and latitude. No neighbouring-cell substitution."
+}

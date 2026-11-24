@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "protocol": "offline_interval_disaggregation_fixed_settings",
+  "random_seed": 20261115,
+  "train_years": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+  ],
+  "evaluation_years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "training_station_split": "train",
+  "tracks": [
+    "derived_hourly",
+    "official_hourly"
+  ],
+  "variables": [
+    "air_temperature",
+    "precipitation",
+    "solar_radiation",
+    "relative_humidity"
+  ],
+  "training_cap_per_station_year": 1024,
+  "training_cap_pooled": 150000,
+  "model": {
+    "class": "ExtraTreesRegressor",
+    "n_estimators": 48,
+    "max_depth": 16,
+    "min_samples_leaf": 12,
+    "n_jobs": 6,
+    "random_state": 20261115
+  },
+  "feature_names": [
+    "own_current",
+    "own_previous",
+    "own_next",
+    "current_air_temperature",
+    "current_precipitation",
+    "current_solar_radiation",
+    "current_relative_humidity",
+    "utc_hour_sin",
+    "utc_hour_cos",
+    "day_of_year_sin",
+    "day_of_year_cos",
+    "latitude",
+    "longitude"
+  ],
+  "imputation": "Training-sample feature medians only; all-training-missing features receive zero. Fixed missingness indicators for all features.",
+  "precipitation_target": "Twelve nonnegative fractions; fit wet training hours only. Clip and normalize predicted fractions, multiply by known current hourly total.",
+  "other_targets": "Twelve residuals relative to own current coarse mean; predictions projected onto known mean and applicable bounds.",
+  "solar_illuminated_threshold_W_m2": 20.0,
+  "rain_wet_threshold_mm": 0.0,
+  "rain_heavy_threshold_mm": 1.0,
+  "prediction_feasibility_tolerance": 1e-10,
+  "settings_status": "Frozen settings. Validation stations have zero hyperparameter tuning trials.",
+  "future_coarse_visibility": "Same-hour and previous/next-hour coarse inputs are intentional offline conditions, not forecasts.",
+  "station_exposure": "Per-variable and per-track training_wbans are the actual WBANs contributing at least one fitted row after both sampling caps; membership in the train hash group alone does not imply exposure.",
+  "evaluation_protocols": {
+    "complete_hour_precipitation_2021_2025": "Tier 1 events in 2021–2025 at held-out test WBANs with complete official-hourly envelopes."
+  },
+  "forbidden_features": [
+    "five_minute_min",
+    "five_minute_max",
+    "five_minute_mean_abs_ramp",
+    "five_minute_max_abs_ramp",
+    "rain_max_fraction",
+    "discrepancy_derived_minus_official",
+    "exclusion_codes",
+    "fine_validity_counts"
+  ],
+  "training_wet_variables": [
+    "air_temperature",
+    "precipitation",
+    "solar_radiation",
+    "relative_humidity"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "task": "offline_interval_disaggregation",
+  "scope": "Mean/total-conditioned retrospective reconstruction; this is not forecasting or independent-sensor validation.",
+  "allowed_primary_features": [
+    "own_current", "own_previous", "own_next",
+    "current_air_temperature", "current_precipitation", "current_solar_radiation", "current_relative_humidity",
+    "utc_hour_sin", "utc_hour_cos", "day_of_year_sin", "day_of_year_cos", "latitude", "longitude"
+  ],
+  "expanded_feature_rule": "The 13 primary features plus exactly their 13 corresponding '<feature>_missing' indicators. Missingness refers only to allowed coarse features, never fine targets.",
+  "feature_source_rules": {
+    "own_current": "Chosen variable's declared coarse track at t.",
+    "own_previous": "Same coarse track at t-1h; intentional offline input.",
+    "own_next": "Same coarse track at t+1h; intentional offline input.",
+    "current_variable_features": "Only the four declared coarse variable values at t.",
+    "calendar_features": "UTC midpoint of the coarse interval, computed from time_end_utc.",
+    "coordinates": "Published station latitude and longitude."
+  },
+  "coarse_variable_map": {
+    "air_temperature": {"official_field": "T_HR_AVG", "fine_field": "AIR_TEMPERATURE", "aggregation": "mean", "units": "degC"},
+    "precipitation": {"official_field": "P_CALC", "fine_field": "PRECIPITATION", "aggregation": "sum", "units": "mm_per_interval"},
+    "solar_radiation": {"official_field": "SOLARAD", "fine_field": "SOLAR_RADIATION", "aggregation": "mean", "units": "W_m-2"},
+    "relative_humidity": {"official_field": "RH_HR_AVG", "fine_field": "RELATIVE_HUMIDITY", "aggregation": "mean", "units": "percent"}
+  },
+  "allowed_coarse_tracks": ["derived_hourly", "official_hourly"],
+  "allowed_coordinate_sources": ["time_end_utc", "LATITUDE", "LONGITUDE"],
+  "forbidden_primary_fields": {
+    "T_CALC": "Directly reports the final five-minute temperature target, not the hourly mean.",
+    "T_MAX": "Upstream hourly temperature maximum; outside mean-only input policy.",
+    "T_MIN": "Upstream hourly temperature minimum; outside mean-only input policy.",
+    "SOLARAD_MAX": "Upstream hourly radiation maximum; outside mean-only input policy.",
+    "SOLARAD_MIN": "Upstream hourly radiation minimum; outside mean-only input policy.",
+    "SUR_TEMP_MAX": "Upstream hourly surface-temperature maximum; outside input policy.",
+    "SUR_TEMP_MIN": "Upstream hourly surface-temperature minimum; outside input policy.",
+    "five_minute_min": "Target-derived diagnostic.",
+    "five_minute_max": "Target-derived diagnostic.",
+    "five_minute_mean_abs_ramp": "Target-derived diagnostic.",
+    "five_minute_max_abs_ramp": "Target-derived diagnostic.",
+    "rain_max_fraction": "Target-derived diagnostic.",
+    "discrepancy_derived_minus_official": "Cross-track target-related diagnostic; not a model input.",
+    "complete_pair": "Eligibility metadata; may filter samples, never a feature.",
+    "valid_five_minute_count": "Target-availability metadata; may filter samples, never a feature.",
+    "fine_record_count": "Target-availability metadata; never a feature.",
+    "exclusion_codes": "Eligibility metadata; never a feature.",
+    "official_exclusion_code": "Eligibility metadata; never a feature.",
+    "constraint_class": "Post-target diagnostic annotation; never a feature.",
+    "fine_zero_count": "Target-derived diagnostic; never a feature.",
+    "fine_positive_count": "Target-derived diagnostic; never a feature."
+  },
+  "unknown_fields": "Reject by default, even when a name is absent from the blacklist.",
+  "coarse_conditioning": "A derived mean/total is intentionally made available by the task; it shares observations with targets and is not independent evidence. Official and derived tracks must remain identified.",
+  "eligibility_use": "Fine validity, complete_pair and exclusion information may establish scoring eligibility only. Natural gaps have no observed ground truth and receive no error score.",
+  "extrema_semantics": "T_MAX/T_MIN originate from upstream higher-frequency measurements; do not assert equality with extrema of twelve published five-minute means.",
+  "sources": [
+    "https://www.ncei.noaa.gov/pub/data/uscrn/products/hourly02/README.txt",
+    "https://www.ncei.noaa.gov/pub/data/uscrn/products/subhourly01/README.txt"
+  ]
+}

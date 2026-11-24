@@ -1,0 +1,5 @@
+-r requirements.txt
+cartopy==0.25.0
+pyproj==3.8.0
+pyshp==3.1.9
+shapely==2.2.0

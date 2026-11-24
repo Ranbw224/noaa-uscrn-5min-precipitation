@@ -1,0 +1,98 @@
+{
+  "stage": "gate0_step0a",
+  "status": "passed",
+  "decided_at_utc": "2026-11-19T04:07:14.594199+00:00",
+  "probe_summary_sha256": "0578042905be36d7181bf285b021514eac601d7e19078e89f584fe32ae7cc7a3",
+  "specification_sha256_before_backfill": "b127c948cf407a35c15bf53fd6e3196f86bf0ee3fd8b01effdd2db7df0b0fbbe",
+  "specification_sha256_after_backfill": "6579bed398e429efe15764feb28ef2819031ac37bf44c914fc49dd7a9ddfc1b7",
+  "changed_section": "IV.1 events.parquet, pre-event soil moisture table row",
+  "soil_event_source": {
+    "product": "hourly02",
+    "native_resolution_minutes": 60,
+    "maximum_lookback_minutes": 60,
+    "lookback_basis": "One verified native interval, a project rule fixed before full-run results",
+    "strict_before_start": true,
+    "inclusive_maximum_offset": true,
+    "timestamp": "UTC right endpoint",
+    "unit": "m3/m3",
+    "missing_sentinel": -99.0,
+    "physical_bounds": [
+      0,
+      1
+    ],
+    "separate_source_qc_flag": null,
+    "depth_columns": [
+      {
+        "depth_cm": 5,
+        "source_field": "SOIL_MOISTURE_5",
+        "position": 29,
+        "event_field": "soil_moisture_pre_5cm"
+      },
+      {
+        "depth_cm": 10,
+        "source_field": "SOIL_MOISTURE_10",
+        "position": 30,
+        "event_field": "soil_moisture_pre_10cm"
+      },
+      {
+        "depth_cm": 20,
+        "source_field": "SOIL_MOISTURE_20",
+        "position": 31,
+        "event_field": "soil_moisture_pre_20cm"
+      },
+      {
+        "depth_cm": 50,
+        "source_field": "SOIL_MOISTURE_50",
+        "position": 32,
+        "event_field": "soil_moisture_pre_50cm"
+      },
+      {
+        "depth_cm": 100,
+        "source_field": "SOIL_MOISTURE_100",
+        "position": 33,
+        "event_field": "soil_moisture_pre_100cm"
+      }
+    ],
+    "subhourly_source_retained": {
+      "product": "subhourly01",
+      "field": "SOIL_MOISTURE_5",
+      "position": 18,
+      "native_resolution_minutes": 5
+    }
+  },
+  "wind_event_source": {
+    "product": "subhourly01",
+    "field": "WIND_1_5",
+    "position": 22,
+    "qc": "WIND_FLAG",
+    "qc_position": 23,
+    "accept_qc": 0,
+    "missing_sentinel": -99.0,
+    "unit": "m/s",
+    "native_resolution_minutes": 5
+  },
+  "replay_roster_preflight": {
+    "union_test_wbans": 23,
+    "test_wbans_with_files_in_all_five_years": 21,
+    "test_wbans_by_year": {
+      "2021": 22,
+      "2022": 22,
+      "2023": 23,
+      "2024": 22,
+      "2025": 22
+    },
+    "partial_year_wbans": {
+      "26564": [
+        2021,
+        2022,
+        2023
+      ],
+      "26566": [
+        2023,
+        2024,
+        2025
+      ]
+    },
+    "effect": "Resolve manuscript replay panel description before publishing replay statistics; independent of ingest"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "dataset_id": "uscrn_interval_disaggregation_2007_2025",
+  "schema_version": 1,
+  "source_base_url": "https://www.ncei.noaa.gov/pub/data/uscrn/products/",
+  "years": [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  "products": ["hourly02", "subhourly01"],
+  "station_selection": "All exact station suffixes present in both NOAA product directories in each source year.",
+  "raw_directory": "data/uscrn_2007_2025/raw",
+  "inventory_directory": "reports/uscrn_2007_2025/source_inventory",
+  "manifest_path": "data/uscrn_2007_2025/source_manifest.json",
+  "legacy_manifest_path": "data/full_source_manifest.json",
+  "documentation_paths": [
+    "hourly02/README.txt",
+    "hourly02/HEADERS.txt",
+    "subhourly01/README.txt",
+    "subhourly01/HEADERS.txt",
+    "stations.tsv",
+    "DATASET-STATUS.txt"
+  ],
+  "gate0_directory": "reports/uscrn_2007_2025/gate0",
+  "base_directory": "data/uscrn_2007_2025/staging/base",
+  "base_reports_directory": "reports/uscrn_2007_2025/base",
+  "final_output_directory": "output/station_disaggregation_release_2007_2025",
+  "retain_hydrology_staging": true,
+  "build_checkpoint_pairs": 16,
+  "temporal_periods": [
+    {"label": "reference_only", "start_year": 2007, "end_year": 2012},
+    {"label": "model_fitting", "start_year": 2013, "end_year": 2020},
+    {"label": "replay", "start_year": 2021, "end_year": 2025}
+  ],
+  "download": {
+    "workers": 4,
+    "attempts": 3,
+    "connect_timeout_seconds": 15,
+    "read_timeout_seconds": 90,
+    "chunk_bytes": 1048576,
+    "user_agent": "USCRN-reproducible-data-research/0.2 (public data archival)"
+  }
+}
